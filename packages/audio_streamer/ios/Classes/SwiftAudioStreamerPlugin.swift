@@ -66,7 +66,7 @@ public class SwiftAudioStreamerPlugin: NSObject, FlutterPlugin, FlutterStreamHan
     func startRecording() {
         engine = AVAudioEngine()
       
-        try! AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, options: .mixWithOthers)
+        try! AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, options: [.allowBluetooth, .allowBluetoothA2DP, .mixWithOthers])
         try! AVAudioSession.sharedInstance().setActive(true)
       
         let input = engine.inputNode
